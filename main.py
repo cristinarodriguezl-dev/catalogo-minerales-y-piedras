@@ -4,7 +4,7 @@ print("Bienvenido/a al Catálogo de colección de Minerales y Piedras.")
 
 #Ingreso y guardado de datos
 
-for i in range (10):
+for i in catalog:
     id = input("Ingrese el ID de la pieza: ")
     name = input("Ingrese el nombre de la pieza: ")
     category = input("¿Qué tipo de piedra o mineral es?: ")
@@ -48,4 +48,35 @@ for pieza in catalog:
 print("Categorías disponibles: ", len(categories))
 print("Categorías: ", categories)
 
-#
+#Filtro de piezas por estado
+
+contador = 0
+for pieza in catalog:
+    if pieza["status"] == "disponible":
+        print(pieza["name"])
+        print("Pieza disponible para la venta")
+        contador = contador + 1
+
+if contador == 0:
+    print("No hay piezas disponibles")
+
+contador = 0
+for pieza in catalog:
+    if pieza["status"] == "reservada":
+        print(pieza["name"])
+        print("Pieza reservada")
+        contador = contador + 1
+
+if contador == 0:
+    print("No hay piezas reservadas")
+
+contador = 0
+for pieza in catalog:
+    if pieza["status"] == "vendida":
+        print(pieza["name"])
+        print("Pieza vendida")
+        contador = contador + 1
+
+if contador == 0:
+    print("No hay piezas vendidas")
+
