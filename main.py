@@ -4,11 +4,11 @@ print("Bienvenido/a al Catálogo de colección de Minerales y Piedras.")
 
 #Ingreso y guardado de datos
 
-for i in catalog:
+for i in range(10):
     id = input("Ingrese el ID de la pieza: ")
     name = input("Ingrese el nombre de la pieza: ")
     category = input("¿Qué tipo de piedra o mineral es?: ")
-    price = input("Ingrese el precio estimado: ")
+    price = float(input("Ingrese el precio estimado: "))
     status = input("Ingrese el estado de la pieza: ")
     description = input("Describa brevemente la pieza: ")
     
@@ -80,3 +80,20 @@ for pieza in catalog:
 if contador == 0:
     print("No hay piezas vendidas")
 
+#Filtro de piezas por precio
+
+while True:
+    try:
+        min_price = float(input("Ingrese el precio mínimo::"))
+        break
+    except:
+        print("Error. Ingresa un valor numérico.")
+
+contador = 0
+for pieza in catalog:
+    if pieza["price"] > min_price:
+        print(pieza["name"], "-", pieza["price"])
+        contador = contador + 1
+
+if contador == 0:
+    print("No se encontraron piezas")
