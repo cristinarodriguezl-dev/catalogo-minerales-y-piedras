@@ -2,7 +2,7 @@ from catalog import catalog
 
 print("Bienvenido/a al Catálogo de colección de Minerales y Piedras.")
 
-#Piezas
+
 for i in range (10):
     id = input("Ingrese el ID de la pieza: ")
     name = input("Ingrese el nombre de la pieza: ")
@@ -23,3 +23,12 @@ for i in range (10):
     catalog.append(piezas)
 
 print(catalog)
+
+for pieza in catalog:
+    print("ID:", pieza["id"])
+    print("Nombre:", pieza["name"])
+    print("Categoría:", pieza["category"])
+    print("Precio:", pieza["price"])
+    print("Estado:", pieza["status"])
+    print("Descripción:", pieza["description"])
+    print("---")
