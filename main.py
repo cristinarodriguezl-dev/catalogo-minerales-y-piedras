@@ -97,3 +97,25 @@ for pieza in catalog:
 
 if contador == 0:
     print("No se encontraron piezas")
+
+# Piezas que pueden publicarse
+
+for pieza in catalog:
+    if pieza["price"] > 0 and pieza["status"] == "disponible":
+        print(pieza["name"], "- Puede publicarse")
+    else:
+        print(pieza["name"], "- No puede publicarse")
+
+# Piezas que necesitan revisión
+
+for pieza in catalog:
+    if pieza["status"] == "reservada" or pieza["status"] == "vendida":
+        print(pieza["name"], "- Requiere revisión")
+    else:
+        print(pieza["name"], "- No requiere revisión")
+
+# Mostrar piezas no vendidas
+
+for pieza in catalog:
+    if pieza["status"] != "vendida":
+        print(pieza["name"], "- No vendida")
