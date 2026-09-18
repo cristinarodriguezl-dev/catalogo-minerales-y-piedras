@@ -37,6 +37,7 @@ for pieza in catalog:
     print("---")
 
 #Cantidad de piezas
+
 print("Piezas registradas: ", len(catalog))
 
 #Mostrar categorías
@@ -119,3 +120,23 @@ for pieza in catalog:
 for pieza in catalog:
     if pieza["status"] != "vendida":
         print(pieza["name"], "- No vendida")
+
+
+#Contatenación
+
+print(catalog[0]["name"] + " - " + catalog[0]["category"] + " - " + str(catalog[0]["price"]) + " - " + catalog[0]["status"] + " - " + catalog[0]["description"])
+
+#Interpolación
+
+print(f"{catalog[0]['name']} - {catalog[0]['category']} - {catalog[0]['price']} - {catalog[0]['status']} - {catalog[0]['description']}")
+
+#Etiquetas
+
+tags = input("Ingrese etiquetas (separadas por comas): ")
+tags_list = tags.split(",")
+print(tags_list)
+
+#Reemplazo de palabra en descripción
+
+new_description = catalog[0]["description"].replace("usada", "certificada")
+print(new_description)
