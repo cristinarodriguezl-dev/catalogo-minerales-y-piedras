@@ -153,3 +153,32 @@ print(username.title())
 
 normalized_name = catalog[0]["name"].strip().title()
 print("Pieza: ", normalized_name)
+
+
+#Menú intercativo
+
+while True:
+    print("1. Mostrar todas las piezas")
+    print("2. Mostrar piezas disponibles")
+    print("3. Mostrar precio promedio")
+    print("4. Salir")
+
+    option = input("Ingrese una opción: ")
+
+    if option == "1":
+        for pieza in catalog:
+            print(pieza)
+    elif option == "2":
+        for pieza in catalog:
+            if pieza["status"] == "disponible":
+                print(pieza)
+    elif option == "3":
+        total_price = 0
+        for pieza in catalog:
+            total_price += pieza["price"]
+        print("Precio promedio: ", total_price / len(catalog))
+    elif option == "4":
+        print("¡Hasta pronto!")
+        break
+    else:
+        print("Opción inválida")
