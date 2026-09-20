@@ -154,6 +154,61 @@ print(username.title())
 normalized_name = catalog[0]["name"].strip().title()
 print("Pieza: ", normalized_name)
 
+#Métricas
+
+available = 0
+reserved = 0
+sold = 0
+
+for pieza in catalog:
+    if pieza["status"] == "disponible":
+        available = available + 1
+    elif pieza["status"] == "reservada":
+        reserved = reserved + 1
+    elif pieza["status"] == "vendida":
+        sold = sold + 1
+
+print("Disponibles:", available)
+print("Reservadas:", reserved)
+print("Vendidas:", sold)
+print("Total de piezas:", len(catalog))
+
+for indice, pieza in enumerate(catalog, start=1):
+    print(indice, ".", pieza["name"])
+
+#Validaciones
+
+while True:
+    try:
+        price = float(input("Ingrese el precio estimado: "))
+        if price > 0:
+            break
+        else:
+            print("El precio debe ser mayor que cero")
+    except:
+        print("Eso no es un número válido")
+
+while True:
+    name = input("Ingrese el nombre de la pieza: ")
+    if name.strip() == "":
+        print("El nombre no puede estar vacío")
+    else:
+        break
+
+while True:
+    status = input("Ingrese el estado de la pieza: ")
+    if status in ["disponible", "reservada", "vendida"]:
+        break
+    else:
+        print("Estado inválido. Debe ser: disponible, reservada o vendida")
+
+while True:
+    description = input("Describa brevemente la pieza: ")
+    if "usada" in description or "certificada" in description:
+        break
+    else:
+        print("La descripción debe incluir la palabra 'usada' o 'certificada'")
+
 
 #Menú intercativo
 
