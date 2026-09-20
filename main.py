@@ -122,7 +122,7 @@ for pieza in catalog:
         print(pieza["name"], "- No vendida")
 
 
-#Contatenación
+#Concatenación
 
 print(catalog[0]["name"] + " - " + catalog[0]["category"] + " - " + str(catalog[0]["price"]) + " - " + catalog[0]["status"] + " - " + catalog[0]["description"])
 
@@ -140,3 +140,16 @@ print(tags_list)
 
 new_description = catalog[0]["description"].replace("usada", "certificada")
 print(new_description)
+
+#Ingreso de usuario
+
+username = input("Ingrese su nombre de usuario: ")
+print(username.strip())
+print(username.lower())
+print(username.upper())
+print(username.title())
+
+#Formato normalizado
+
+normalized_name = catalog[0]["name"].strip().title()
+print("Pieza: ", normalized_name)
