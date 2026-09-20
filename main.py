@@ -40,7 +40,7 @@ for i in range(10):
         else:
             print("La descripción debe incluir la palabra 'usada' o 'certificada'")
 
-    piezas = {
+    pieces = {
         "id": id,
         "name": name,
         "category": category,
@@ -49,19 +49,19 @@ for i in range(10):
         "description": description
     }
 
-    catalog.append(piezas)
+    catalog.append(pieces)
 
 print(catalog)
 
 #Mostrar catálogo
 
-for pieza in catalog:
-    print("ID:", pieza["id"])
-    print("Nombre:", pieza["name"])
-    print("Categoría:", pieza["category"])
-    print("Precio:", pieza["price"])
-    print("Estado:", pieza["status"])
-    print("Descripción:", pieza["description"])
+for piece in catalog:
+    print("ID:", piece["id"])
+    print("Nombre:", piece["name"])
+    print("Categoría:", piece["category"])
+    print("Precio:", piece["price"])
+    print("Estado:", piece["status"])
+    print("Descripción:", piece["description"])
     print("---")
 
 #Cantidad de piezas
@@ -72,17 +72,17 @@ print("Piezas registradas: ", len(catalog))
 
 categories = set()
 
-for pieza in catalog:
-    categories.add(pieza["category"])
+for piece in catalog:
+    categories.add(piece["category"])
 print("Categorías disponibles: ", len(categories))
 print("Categorías: ", categories)
 
 #Filtro de piezas por estado
 
 contador = 0
-for pieza in catalog:
-    if pieza["status"] == "disponible":
-        print(pieza["name"])
+for piece in catalog:
+    if piece["status"] == "disponible":
+        print(piece["name"])
         print("Pieza disponible para la venta")
         contador = contador + 1
 
@@ -90,9 +90,9 @@ if contador == 0:
     print("No hay piezas disponibles")
 
 contador = 0
-for pieza in catalog:
-    if pieza["status"] == "reservada":
-        print(pieza["name"])
+for piece in catalog:
+    if piece["status"] == "reservada":
+        print(piece["name"])
         print("Pieza reservada")
         contador = contador + 1
 
@@ -100,9 +100,9 @@ if contador == 0:
     print("No hay piezas reservadas")
 
 contador = 0
-for pieza in catalog:
-    if pieza["status"] == "vendida":
-        print(pieza["name"])
+for piece in catalog:
+    if piece["status"] == "vendida":
+        print(piece["name"])
         print("Pieza vendida")
         contador = contador + 1
 
@@ -119,9 +119,9 @@ while True:
         print("Error. Ingresa un valor numérico.")
 
 contador = 0
-for pieza in catalog:
-    if pieza["price"] > min_price:
-        print(pieza["name"], "-", pieza["price"])
+for piece in catalog:
+    if piece["price"] > min_price:
+        print(piece["name"], "-", piece["price"])
         contador = contador + 1
 
 if contador == 0:
@@ -129,25 +129,25 @@ if contador == 0:
 
 # Piezas que pueden publicarse
 
-for pieza in catalog:
-    if pieza["price"] > 0 and pieza["status"] == "disponible":
-        print(pieza["name"], "- Puede publicarse")
+for piece in catalog:
+    if piece["price"] > 0 and piece["status"] == "disponible":
+        print(piece["name"], "- Puede publicarse")
     else:
-        print(pieza["name"], "- No puede publicarse")
+        print(piece["name"], "- No puede publicarse")
 
 # Piezas que necesitan revisión
 
-for pieza in catalog:
-    if pieza["status"] == "reservada" or pieza["status"] == "vendida":
-        print(pieza["name"], "- Requiere revisión")
+for piece in catalog:
+    if piece["status"] == "reservada" or piece["status"] == "vendida":
+        print(piece["name"], "- Requiere revisión")
     else:
-        print(pieza["name"], "- No requiere revisión")
+        print(piece["name"], "- No requiere revisión")
 
 # Mostrar piezas no vendidas
 
-for pieza in catalog:
-    if pieza["status"] != "vendida":
-        print(pieza["name"], "- No vendida")
+for piece in catalog:
+    if piece["status"] != "vendida":
+        print(piece["name"], "- No vendida")
 
 
 #Concatenación
@@ -188,12 +188,12 @@ available = 0
 reserved = 0
 sold = 0
 
-for pieza in catalog:
-    if pieza["status"] == "disponible":
+for piece in catalog:
+    if piece["status"] == "disponible":
         available = available + 1
-    elif pieza["status"] == "reservada":
+    elif piece["status"] == "reservada":
         reserved = reserved + 1
-    elif pieza["status"] == "vendida":
+    elif piece["status"] == "vendida":
         sold = sold + 1
 
 print("Disponibles:", available)
@@ -201,8 +201,8 @@ print("Reservadas:", reserved)
 print("Vendidas:", sold)
 print("Total de piezas:", len(catalog))
 
-for indice, pieza in enumerate(catalog, start=1):
-    print(indice, ".", pieza["name"])
+for indice, piece in enumerate(catalog, start=1):
+    print(indice, ".", piece["name"])
 
 #Menú intercativo
 
@@ -215,16 +215,16 @@ while True:
     option = input("Ingrese una opción: ")
 
     if option == "1":
-        for pieza in catalog:
-            print(pieza)
+        for piece in catalog:
+            print(piece)
     elif option == "2":
-        for pieza in catalog:
-            if pieza["status"] == "disponible":
-                print(pieza)
+        for piece in catalog:
+            if piece["status"] == "disponible":
+                print(piece)
     elif option == "3":
         total_price = 0
-        for pieza in catalog:
-            total_price += pieza["price"]
+        for piece in catalog:
+            total_price += piece["price"]
         print("Precio promedio: ", total_price / len(catalog))
     elif option == "4":
         print("¡Hasta pronto!")
