@@ -79,34 +79,34 @@ print("Categorías: ", categories)
 
 #Filtro de piezas por estado
 
-contador = 0
+counter = 0
 for piece in catalog:
     if piece["status"] == "disponible":
         print(piece["name"])
         print("Pieza disponible para la venta")
-        contador = contador + 1
+        counter = counter + 1
 
-if contador == 0:
+if counter == 0:
     print("No hay piezas disponibles")
 
-contador = 0
+counter = 0
 for piece in catalog:
     if piece["status"] == "reservada":
         print(piece["name"])
         print("Pieza reservada")
-        contador = contador + 1
+        counter = counter + 1
 
-if contador == 0:
+if counter == 0:
     print("No hay piezas reservadas")
 
-contador = 0
+counter = 0
 for piece in catalog:
     if piece["status"] == "vendida":
         print(piece["name"])
         print("Pieza vendida")
-        contador = contador + 1
+        counter = counter + 1
 
-if contador == 0:
+if counter == 0:
     print("No hay piezas vendidas")
 
 #Filtro de piezas por precio
@@ -118,13 +118,13 @@ while True:
     except:
         print("Error. Ingresa un valor numérico.")
 
-contador = 0
+counter = 0
 for piece in catalog:
     if piece["price"] > min_price:
         print(piece["name"], "-", piece["price"])
-        contador = contador + 1
+        counter = counter + 1
 
-if contador == 0:
+if counter == 0:
     print("No se encontraron piezas")
 
 # Piezas que pueden publicarse
